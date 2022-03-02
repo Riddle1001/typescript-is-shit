@@ -50,7 +50,7 @@ interface Resource<T> { // Allows data to have a custom type that can be passed 
 }
 
 
-let docThree: Resource<string> = {
+let docThree: Resource<string> = { // Tell interface that the data is a string.
     uid: 1,
     resourceName: "book",
     data: "A Quick Brown Fox"
