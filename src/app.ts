@@ -3,16 +3,23 @@
 class Invoice {
     // You must either set an intial value here, or in the constructor.
 
-    // These are public.
-    client: string;
-    details: string;
-    amount: number;
+    // readonly client: string;
+    // private details: string;
+    // public amount: number;
 
-    constructor(c: string, d: string, a: number) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
+    // constructor(c: string, d: string, a: number) {
+    //     this.client = c;
+    //     this.details = d;
+    //     this.amount = a;
+    // }
+
+    constructor(
+        readonly client: string,
+        private details: string, 
+        public amount: number // This also assigns them to the instance, i.e automatically does this.amount = amount
+    ){
+
+    } 
 
     format() {
         return `${this.client} owes £${this.amount} for ${this.details}`;
@@ -26,11 +33,11 @@ let invoices: Invoice[] = [];
 invoices.push(invOne);
 invoices.push(invTwo);
 
-invOne.client = "yoshi";
-invTwo.amount = 500;
+invoices.forEach((invoice) => {
+    console.log(invoice.client, invoice.amount, "-", invoice.format());
+});
 
-console.log(invOne);
-console.log(invTwo);
+
 
 const form = document.querySelector(".new-item-form") as HTMLFormElement; 
 
