@@ -43,8 +43,15 @@ let docOne = addUID({ name: "yoshi", age: 40 });
 
 console.log(docOne.name)
 
-interface Resource {
+interface Resource<T> { // Allows data to have a custom type that can be passed in.
     uid: number;
     resourceName: string;
-    data: "???"
+    data: T;
+}
+
+
+let docThree: Resource<string> = {
+    uid: 1,
+    resourceName: "book",
+    data: "A Quick Brown Fox"
 }
