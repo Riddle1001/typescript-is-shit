@@ -34,17 +34,8 @@ form.addEventListener("submit", (e: Event) => {
 // <T> captures the type.
 // <T extends object> captures the type and makes sure it is an object.
 
-const addUID = <T extends object>(obj: T) => {
-    let uid = Math.floor(Math.random() * 100);
-    return { ...obj, uid };
-}
-
-let docOne = addUID({ name: "yoshi", age: 40 });
-
-console.log(docOne.name)
-
-interface Resource {
+interface Resource<T> {
     uid: number;
-    resourceName: string;
-    data: "???"
+    resourceType: number;
+    data: T;
 }

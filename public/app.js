@@ -20,11 +20,3 @@ form.addEventListener("submit", (e) => {
     }
     list.render(doc, type.value, "end");
 });
-// <T> captures the type.
-// <T extends object> captures the type and makes sure it is an object.
-const addUID = (obj) => {
-    let uid = Math.floor(Math.random() * 100);
-    return Object.assign(Object.assign({}, obj), { uid });
-};
-let docOne = addUID({ name: "yoshi", age: 40 });
-console.log(docOne.name);
