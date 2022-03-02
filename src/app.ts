@@ -34,8 +34,31 @@ form.addEventListener("submit", (e: Event) => {
 // <T> captures the type.
 // <T extends object> captures the type and makes sure it is an object.
 
-interface Resource<T> {
+enum ResourceType {
+    BOOK, AUTHOR, FILM, DIRECTOR, PERSON
+}
+
+interface Resource<T> { // Allows data to have a custom type that can be passed in.
     uid: number;
-    resourceType: number;
+    resourceName: ResourceType;
     data: T;
 }
+
+let docOne: Resource<object> = {
+    uid: 1,
+    resourceName: ResourceType.BOOK,
+    data: {
+        title: "The Dark Tower",
+    }
+}
+
+let docTwo: Resource<object> = {
+    uid: 2,
+    resourceName: ResourceType.AUTHOR,
+    data: {
+        title: "Eloquent Javascript",
+    }
+}
+
+console.log(docOne, docTwo);
+

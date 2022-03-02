@@ -20,3 +20,28 @@ form.addEventListener("submit", (e) => {
     }
     list.render(doc, type.value, "end");
 });
+// <T> captures the type.
+// <T extends object> captures the type and makes sure it is an object.
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
+let docOne = {
+    uid: 1,
+    resourceName: ResourceType.BOOK,
+    data: {
+        title: "The Dark Tower",
+    }
+};
+let docTwo = {
+    uid: 2,
+    resourceName: ResourceType.AUTHOR,
+    data: {
+        title: "Eloquent Javascript",
+    }
+};
+console.log(docOne, docTwo);
