@@ -1,3 +1,31 @@
+// interaces
+interface IsPerson {
+    name: string;
+    age: number;
+    speak(a: string): void;
+    spend(a: number): number;
+}
+
+// The object must match the structure of the interface. It cannot have a missing property, or it cannot have a property that isn't defined in the interface.
+const me: IsPerson = {
+    name: "shaun",
+    age: 30,
+    speak(text: string): void {
+        console.log(text);
+    },
+    spend(amount: number): number {
+        return amount;
+    }
+}
+
+let someone: IsPerson; // this enforces the strcuture when we assign it.
+
+const greetPerson = (person: IsPerson) => {
+    console.log("hello, " + person.name);
+}
+
+// greetPerson({name: "test"}) // doesnt work because it doesn't match the structure of the interface. (it's missing age, speak, spend).
+
 import { Invoice } from './classes/invoice.js';
 
 const invOne = new Invoice('mario', 'work on the mario website', 250);
