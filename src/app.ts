@@ -31,34 +31,9 @@ form.addEventListener("submit", (e: Event) => {
 });
 
 
-// <T> captures the type.
-// <T extends object> captures the type and makes sure it is an object.
+// tuples
 
-enum ResourceType {
-    BOOK, AUTHOR, FILM, DIRECTOR, PERSON
-}
+let arr = ['ryu', 25, true];
+arr[0] = 'yoshi';
 
-interface Resource<T> { // Allows data to have a custom type that can be passed in.
-    uid: number;
-    resourceName: ResourceType;
-    data: T;
-}
-
-let docOne: Resource<object> = {
-    uid: 1,
-    resourceName: ResourceType.BOOK,
-    data: {
-        title: "The Dark Tower",
-    }
-}
-
-let docTwo: Resource<object> = {
-    uid: 2,
-    resourceName: ResourceType.AUTHOR,
-    data: {
-        title: "Eloquent Javascript",
-    }
-}
-
-console.log(docOne, docTwo);
-
+let tup: [string, number, boolean] = ['ryu', 25, true];
